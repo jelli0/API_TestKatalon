@@ -33,7 +33,7 @@ import groovy.json.JsonSlurper&#xd;
 import com.kms.katalon.core.testobject.ResponseObject&#xd;
 import internal.GlobalVariable as GlobalVariable&#xd;
 &#xd;
-statusCode = WS.sendRequestAndVerify(findTestObject('Respon/DELETE'))&#xd;
+def response = WS.sendRequestAndVerify(findTestObject('Respon/DELETE'))&#xd;
 &#xd;
 assert GlobalVariable.userID != null : &quot;userID dari POST tidak ditemukan&quot;&#xd;
 </verificationScript>
