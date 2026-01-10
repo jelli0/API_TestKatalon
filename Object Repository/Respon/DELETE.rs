@@ -18,7 +18,7 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>DELETE</restRequestMethod>
-   <restUrl></restUrl>
+   <restUrl>${GlobalVariable.URL}/users/${GlobalVariable.userID}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -27,21 +27,15 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
-   <verificationScript>import static org.assertj.core.api.Assertions.*
-
-import com.kms.katalon.core.testobject.RequestObject
-import com.kms.katalon.core.testobject.ResponseObject
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webservice.verification.WSResponseManager
-
-import groovy.json.JsonSlurper
-import internal.GlobalVariable as GlobalVariable
-
-import static org.assertj.core.api.Assertions.*
-import com.kms.katalon.core.testobject.ResponseObject
-
-ResponseObject response = messageExchange.response
-
-assertThat(response.getStatusCode()).isEqualTo(204)</verificationScript>
+   <verificationScript>import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject&#xd;
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS&#xd;
+import groovy.json.JsonSlurper&#xd;
+import com.kms.katalon.core.testobject.ResponseObject&#xd;
+import internal.GlobalVariable as GlobalVariable&#xd;
+&#xd;
+statusCode = WS.sendRequestAndVerify(findTestObject('Respon/DELETE'))&#xd;
+&#xd;
+assert GlobalVariable.userID != null : &quot;userID dari POST tidak ditemukan&quot;&#xd;
+</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

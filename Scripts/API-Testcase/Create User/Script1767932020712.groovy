@@ -17,3 +17,21 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+def response = WS.sendRequest(findTestObject('Respon/POST_user'))
+
+WS.verifyResponseStatusCode(response, 201)
+
+GlobalVariable.userID = WS.getElementPropertyValue(response, 'userID')
+
+def jelly = new JsonSlurper().parseText(response.getResponseText())
+
+println "id: ${jelly}"
+
+GlobalVariable.userID = jelly.id
+
+println "User ID: ${GlobalVariable.userID}"

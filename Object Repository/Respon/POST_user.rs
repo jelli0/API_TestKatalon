@@ -41,17 +41,9 @@
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <verificationScript>import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.testobject.ResponseObject
-import internal.GlobalVariable
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
 
-ResponseObject response = WS.sendRequest(findTestObject('Global/POST_user'))
-
-WS.verifyResponseStatusCode(response, 201)
-
-String userName = WS.getElementPropertyValue(response, 'name')
-
-GlobalVariable.name = userName
-
-println 'NAMA dari POST: ' + GlobalVariable.name</verificationScript>
+def response = WS.sendRequest(findTestObject('Global/POST_user'))</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
