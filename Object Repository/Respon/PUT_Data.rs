@@ -7,18 +7,30 @@
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
-   <autoUpdateContent>true</autoUpdateContent>
+   <autoUpdateContent>false</autoUpdateContent>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>true</followRedirects>
    <httpBody></httpBody>
-   <httpBodyContent></httpBodyContent>
-   <httpBodyType></httpBodyType>
+   <httpBodyContent>{
+  &quot;text&quot;: &quot;{\n  \&quot;name\&quot;: \&quot;JELI UPDATE\&quot;,\n  \&quot;job\&quot;: \&quot;CEO MUDA\&quot;,\n  \&quot;salary\&quot;: \&quot;1 Miliar\&quot;,\n  \&quot;umur\&quot; : \&quot;18\&quot;\n}\n&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;charset&quot;: &quot;UTF-8&quot;
+}</httpBodyContent>
+   <httpBodyType>text</httpBodyType>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Content-Type</name>
+      <type>Main</type>
+      <value>application/json</value>
+      <webElementGuid>8f1f2154-04b2-44c7-9ea4-cef4252cf9ca</webElementGuid>
+   </httpHeaderProperties>
    <katalonVersion>10.3.2</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>PUT</restRequestMethod>
-   <restUrl></restUrl>
+   <restUrl>${GlobalVariable.URL}/users/${GlobalVariable.userID}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -27,21 +39,14 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
-   <verificationScript>import static org.assertj.core.api.Assertions.*
-
-import com.kms.katalon.core.testobject.RequestObject
-import com.kms.katalon.core.testobject.ResponseObject
+   <verificationScript>import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.webservice.verification.WSResponseManager
-
 import groovy.json.JsonSlurper
 import internal.GlobalVariable as GlobalVariable
 
-import static org.assertj.core.api.Assertions.*
-import com.kms.katalon.core.testobject.ResponseObject
+def response = WS.sendRequestAndVerify(findTestObject('Respon/PUT_Data'))
 
-ResponseObject response = messageExchange.response
-
-assertThat(response.getStatusCode()).isEqualTo(200)</verificationScript>
+assert GlobalVariable.userID != null : &quot;userID dari POST tidak ditemukan&quot;
+</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
