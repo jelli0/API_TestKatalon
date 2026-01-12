@@ -12,7 +12,7 @@
    <followRedirects>true</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;name\&quot;: \&quot;JELI UPDATE\&quot;,\n  \&quot;job\&quot;: \&quot;CEO MUDA\&quot;,\n  \&quot;salary\&quot;: \&quot;1 Miliar\&quot;,\n  \&quot;umur\&quot; : \&quot;18\&quot;\n}\n&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;name\&quot;: \&quot;JELI UPDATE\&quot;,\n  \&quot;job\&quot;: \&quot;CEO UPDATE\&quot;,\n  \&quot;salary\&quot;: \&quot;1 Miliar\&quot;,\n  \&quot;umur\&quot; : \&quot;17\&quot;\n}\n&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -23,14 +23,14 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
-      <webElementGuid>8f1f2154-04b2-44c7-9ea4-cef4252cf9ca</webElementGuid>
+      <webElementGuid>6112a8a0-cb3e-43dc-b8a8-644d200721bc</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>10.3.2</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>PUT</restRequestMethod>
-   <restUrl>${GlobalVariable.URL}/users/${GlobalVariable.userID}</restUrl>
+   <restUrl>${GlobalVariable.URL}/users/169</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
