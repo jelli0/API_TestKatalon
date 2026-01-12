@@ -16,13 +16,15 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper as JsonSlurper
 
-import groovy.json.JsonSlurper
+WebUI.callTestCase(findTestCase('API-Testcase/Delete User'), [:], FailureHandling.STOP_ON_FAILURE)
 
 def response = WS.sendRequest(findTestObject('Respon/GET_User', [('userID') : GlobalVariable.userID]))
 
-WS.verifyResponseStatusCode(response, 200)
+WS.sendRequest(findTestObject('Respon/GET_user'))
 
-def jelly = new JsonSlurper().parseText(response.getResponseText())
+WS.verifyResponseStatusCode(response, 404)
 
-println("name: $jelly")
+println("USER ID: $GlobalVariable.userID -> NOT FOUND/SUDAH DIHAPUS")
+
