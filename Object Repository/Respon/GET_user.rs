@@ -27,14 +27,20 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
-   <verificationScript>import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject&#xd;
-import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS&#xd;
-import groovy.json.JsonSlurper&#xd;
-import com.kms.katalon.core.testobject.ResponseObject&#xd;
-import internal.GlobalVariable as GlobalVariable&#xd;
-&#xd;
-def response = WS.sendRequestAndVerify(findTestObject('Respon/GET_user'))&#xd;
-&#xd;
-assert GlobalVariable.userID != null : &quot;userID dari POST tidak ditemukan&quot;</verificationScript>
+   <verificationScript>import static org.assertj.core.api.Assertions.*
+
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webservice.verification.WSResponseManager
+
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+import static org.assertj.core.api.Assertions.*
+import com.kms.katalon.core.testobject.ResponseObject
+
+ResponseObject response = messageExchange.response
+</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
